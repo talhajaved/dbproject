@@ -1,23 +1,21 @@
-from sqlalchemy import *
+
+from sqlalchemy import Column, DateTime, String, Integer, ForeignKey, BigInteger, Date
 import os
 import sys
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.ext.declarative import AbstractConcreteBase
 from sqlalchemy.orm import relationship
+from sqlalchemy import create_engine
 
 Base = declarative_base()
- 
-
-
     
 class Place(Base):
     __tablename__ = 'place'
     # Here we define columns for the table address.
     # Notice that each column is also a normal Python instance attribute.
     id = Column(BigInteger, primary_key=True)
-    name = Column(String(50), nullable=False)
-    url = Column(String(250), nullable=False)
-    type = Column(String(10), nullable=False)
+    name = Column(String(50))
+    url = Column(String(250))
+    type = Column(String(10))
 
     __mapper_args__ = {
         'polymorphic_identity':'place',
@@ -31,6 +29,7 @@ class Continent(Place):
     id = Column(BigInteger, ForeignKey('place.id'),primary_key=True)
     __mapper_args__ = {
         'polymorphic_identity':'continent',
+        'inherit_condition':(id == Place.id)
     }
 
 class Country(Place):
@@ -40,9 +39,10 @@ class Country(Place):
     id = Column(BigInteger, ForeignKey('place.id'),primary_key=True)
     __mapper_args__ = {
         'polymorphic_identity':'country',
+        'inherit_condition':(id == Place.id)
     }
     isPartOf = Column(BigInteger, ForeignKey('continent.id'),nullable=False)
-    continent = relationship(Continent)
+    continent = relationship(Continent,foreign_keys='Country.isPartOf')
 
 class City(Place):
     __tablename__ = 'city'
@@ -51,9 +51,10 @@ class City(Place):
     id = Column(BigInteger, ForeignKey('place.id'),primary_key=True)
     __mapper_args__ = {
         'polymorphic_identity':'city',
+        'inherit_condition':(id == Place.id)
     }
     isPartOf = Column(BigInteger, ForeignKey('country.id'),nullable=False)
-    country = relationship(Country)
+    country = relationship(Country,foreign_keys='City.isPartOf')
 
 class Person(Base):
     __tablename__ = 'person'
@@ -69,7 +70,6 @@ class Person(Base):
     birthday = Column(Date, nullable=False)
     workAt = relationship('PersonWorksAt')
     studyAt = relationship('PersonStudiesAt')
-    workAt = relationship('PersonKnows')
     likes = relationship('PersonLikesMessage')
     hasInterest  = relationship('Tag', secondary='person_has_interest')
     isMemberOf  = relationship('Forum', secondary='forum_has_member')
@@ -179,7 +179,8 @@ class TagClass(Base):
     name = Column(String(50))
     url = Column(String(250))
     tag  = relationship('Tag', secondary='tag_has_type')
-    isSubclassOf  = relationship('TagClass', secondary='tagclass_is_subclass_of')
+    isParentOf  = relationship('TagClass', secondary='tagclass_is_subclass_of',foreign_keys='TagClassIsSubclassOf.parent_id')
+    isSubclassOf  = relationship('TagClass', secondary='tagclass_is_subclass_of',foreign_keys='TagClassIsSubclassOf.child_id')
 
 class Tag(Base):
     __tablename__ = 'tag'
@@ -225,7 +226,7 @@ class PersonStudiesAt(Base):
     classYear = Column(BigInteger)
 
 class PersonHasInterest(Base):
-    __tablename__ = 'person_has_interst'
+    __tablename__ = 'person_has_interest'
     # Here we define columns for the table person
     # Notice that each column is also a normal Python instance attribute.
     person_id = Column(BigInteger, ForeignKey('person.id'),primary_key=True)
@@ -242,8 +243,8 @@ class TagClassIsSubclassOf(Base):
     __tablename__ = 'tagclass_is_subclass_of'
     # Here we define columns for the table person
     # Notice that each column is also a normal Python instance attribute.
-    parent_tagclass_id = Column(BigInteger, ForeignKey('tagclass.id'),primary_key=True)
-    child_tagclass_id = Column(BigInteger, ForeignKey('tagclass.id'),primary_key=True)
+    parent_id = Column(BigInteger, ForeignKey('tagclass.id'),primary_key=True)
+    child_id = Column(BigInteger, ForeignKey('tagclass.id'),primary_key=True)
 
 class PersonKnows(Base):
     __tablename__ = 'person_knows'
@@ -279,7 +280,7 @@ class PersonLikesMessage(Base):
     
 # Create an engine that stores data in the local directory's
 # sqlalchemy_example.db file.
-engine = create_engine('sqlite:///sqlalchemy_example.db')
+engine = create_engine('sqlite:///test.db')
  
 # Create all tables in the engine. This is equivalent to "Create Table"
 # statements in raw SQL.
