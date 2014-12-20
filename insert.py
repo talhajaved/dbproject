@@ -16,7 +16,7 @@ session = DBSession()
 
 
 
-'''
+
 # places loading start
 
 print 'start read place'
@@ -358,7 +358,7 @@ session.commit()
 print 'close post'
 # post loading complete
 
-'''
+
 # comment loading start
 print 'start read comment'
 comment_list = []
