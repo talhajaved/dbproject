@@ -81,7 +81,7 @@ class Forum(Base):
     # Here we define columns for the table address.
     # Notice that each column is also a normal Python instance attribute.
     id = Column(BigInteger, primary_key=True)
-    title = Column(String(50))
+    title = Column(String(100))
     creationDate = Column(DateTime)
     hasModerator = Column(BigInteger, ForeignKey('person.id'),nullable= False)
     person = relationship(Person)
@@ -97,7 +97,7 @@ class Message( Base):
     browserUsed = Column(String(20))
     creationDate = Column(DateTime)
     length = Column(Integer)
-    content = Column(String(250))
+    content = Column(String(1000))
     type = Column(String(10), nullable=False)
     likedBy = relationship('PersonLikesMessage')
     hasCreator = Column(BigInteger, ForeignKey('person.id'),nullable= False)
@@ -124,7 +124,7 @@ class Post(Message):
     __tablename__ = 'post'
     # Here we define columns for the table address.
     # Notice that each column is also a normal Python instance attribute.
-    language = Column(String(250))
+    language = Column(String(5))
     imageFile = Column(String(250))
     forumId = Column(BigInteger, ForeignKey('forum.id'),nullable= False)
     forum  = relationship(Forum)
@@ -187,7 +187,7 @@ class Tag(Base):
     # Here we define columns for the table address.
     # Notice that each column is also a normal Python instance attribute.
     id = Column(BigInteger, primary_key=True)
-    name = Column(String(50))
+    name = Column(String(100))
     url = Column(String(250))
     person = relationship('Person', secondary='person_has_interest')
     hasType  = relationship('TagClass', secondary='tag_has_type')
@@ -199,7 +199,7 @@ class PersonSpeaksLanguage(Base):
     # Notice that each column is also a normal Python instance attribute.
     person_id = Column(BigInteger, ForeignKey('person.id'),primary_key=True)
     person = relationship(Person)
-    email = Column(String(100), primary_key=True)
+    language = Column(String(5), primary_key=True)
 
 class PersonEmailAddress(Base):
     __tablename__ = 'person_email_emailaddress'
@@ -207,7 +207,7 @@ class PersonEmailAddress(Base):
     # Notice that each column is also a normal Python instance attribute.
     person_id = Column(BigInteger, ForeignKey('person.id'),primary_key=True)
     person = relationship(Person)
-    language = Column(String(5),primary_key=True)
+    email = Column(String(100),primary_key=True)
 
 class PersonWorksAt(Base):
     __tablename__ = 'person_works_at'
@@ -280,7 +280,8 @@ class PersonLikesMessage(Base):
     
 # Create an engine that stores data in the local directory's
 # sqlalchemy_example.db file.
-engine = create_engine('sqlite:///test.db')
+#engine = create_engine('sqlite:///test.db')
+engine = create_engine('postgresql://postgres:database@localhost:5432/dbproject')
  
 # Create all tables in the engine. This is equivalent to "Create Table"
 # statements in raw SQL.
