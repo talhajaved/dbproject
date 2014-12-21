@@ -22,10 +22,10 @@ createTables.main()
 print "Now loading data from folder "+config.csv_files_input_directory+"...\n"
 insertData.main()
 
-print "Now creating the materialized views...\n"
+print "\nNow creating the materialized views...\n"
 prepareViews.main()
 
-print"Running the queries now ..."
+print"\nRunning the queries now ...\n"
 
 fileInput = open(config.test_file_path)
 for line in fileInput:
