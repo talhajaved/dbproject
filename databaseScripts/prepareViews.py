@@ -38,7 +38,7 @@ def main():
 		end = time.time()
 		return end - start
 
-	print "TABLE             |COPY TIME (seconds)         "
+	print "VIEW                   |COPY TIME (seconds)         "
 	print "psRepliesPair     |"+ str(runGetTime(cur,personRepliesPair))
 
 	conn.commit()
