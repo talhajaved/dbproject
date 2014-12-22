@@ -1,0 +1,132 @@
+Deleting database dbproject if already exists....
+
+Now creating database dbproject...
+
+Now creating the schema...
+
+Now loading data from folder /Users/nyuad/Desktop/csv/outputDir-1k...
+
+LOADING Place
+LOADING Person
+LOADING Forum
+LOADING Tagclass
+LOADING Organization
+LOADING Tag
+LOADING Person Works
+LOADING Person Studies
+LOADING Person Interests
+LOADING Person Emails
+LOADING Person Speaks Languages
+LOADING Person Knows
+LOADING TagHasType
+LOADING Forum Members
+LOADING Forum Tags
+LOADING Tagclass Subclass
+LOADING Post
+LOADING PostHasTag
+LOADING Comment
+LOADING PersonLikesPosts
+
+TABLE                   |COPY TIME (seconds)         
+Place                   |0.787070035934
+Person                  |0.539463043213
+Forum                   |4.529058218
+Commen                  |453.041663885
+Tag                     |0.428983926773
+TagClass                |0.116197109222
+Organization            |0.706755876541
+Post                    |119.575311899
+Speaks                  |0.632019042969
+Email                   |0.591829061508
+Knows                   |10.7639429569
+Likes                   |247.411604881
+HasInterest             |1.05841898918
+WorkAt                  |0.661831140518
+StudyAt                 |0.257850885391
+ForumHasTagLoadTime     |4.34209299088
+ForumHasMember          |91.7073218822
+PostHasTag              |48.4920370579
+TagHasType              |0.546472787857
+TagClassSubclass        |0.546472787857
+
+Now creating the materialized views...
+
+VIEW              |COPY TIME (seconds)         
+psRepliesPair     |5.71241497993
+personTagPair     |0.321731090546
+
+Running the queries now ...
+
+query1(576, 400, -1)
+STARTTIME (in seconds): 1419279119.22
+Query Output:  3
+ENDTIME (in seconds): 1419279127.06
+RUNTIME (in seconds): 7.8362159729 
+
+query1(58, 402, 0)
+STARTTIME (in seconds): 1419279127.09
+Query Output:  3
+ENDTIME (in seconds): 1419279136.96
+RUNTIME (in seconds): 9.86449694633 
+
+query1(266, 106, -1)
+STARTTIME (in seconds): 1419279137.05
+Query Output:  3
+ENDTIME (in seconds): 1419279143.01
+RUNTIME (in seconds): 5.96253609657 
+
+query1(313, 523, -1)
+STARTTIME (in seconds): 1419279143.05
+Query Output:  -1
+ENDTIME (in seconds): 1419279150.76
+RUNTIME (in seconds): 7.7052462101 
+
+query1(858, 587, 1)
+STARTTIME (in seconds): 1419279150.8
+Query Output:  4
+ENDTIME (in seconds): 1419279159.49
+RUNTIME (in seconds): 8.69323396683 
+
+query1(155, 355, -1)
+STARTTIME (in seconds): 1419279159.57
+Query Output:  3
+ENDTIME (in seconds): 1419279165.97
+RUNTIME (in seconds): 6.40010595322 
+
+query1(947, 771, -1)
+STARTTIME (in seconds): 1419279166.01
+Query Output:  2
+ENDTIME (in seconds): 1419279168.91
+RUNTIME (in seconds): 2.90629887581 
+
+query2(3, 1982-03-29)
+STARTTIME (in seconds): 1419279169.07
+Query Output:  Chiang_Kai-shek Mohandas_Karamchand_Gandhi Napoleon
+ENDTIME (in seconds): 1419279213.95
+RUNTIME (in seconds): 44.8881349564 
+
+query2(3, 1983-05-09)
+STARTTIME (in seconds): 1419279214.11
+Query Output:  Chiang_Kai-shek Mohandas_Karamchand_Gandhi Augustine_of_Hippo
+ENDTIME (in seconds): 1419279232.63
+RUNTIME (in seconds): 18.5187168121 
+
+query2(5, 1984-07-02)
+STARTTIME (in seconds): 1419279232.8
+Query Output:  Chiang_Kai-shek Aristotle Mohandas_Karamchand_Gandhi Augustine_of_Hippo Fidel_Castro
+ENDTIME (in seconds): 1419279235.07
+RUNTIME (in seconds): 2.26738190651 
+
+query2(3, 1985-05-31)
+STARTTIME (in seconds): 1419279235.23
+Query Output:  Chiang_Kai-shek Mohandas_Karamchand_Gandhi Joseph_Stalin
+ENDTIME (in seconds): 1419279235.97
+RUNTIME (in seconds): 0.743496894836 
+
+query2(3, 1986-06-14
+STARTTIME (in seconds): 1419279236.12
+Query Output:  Chiang_Kai-shek Mohandas_Karamchand_Gandhi Joseph_Stalin
+ENDTIME (in seconds): 1419279236.7
+RUNTIME (in seconds): 0.579075813293 
+
+Completed.

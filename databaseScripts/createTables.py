@@ -7,32 +7,6 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 from sqlalchemy import create_engine
 
-
-
-def deleteDB():
-  conn = pg.connect(database=config.db['default-db'], user=config.db['user'], password=config.db['password'],\
-    host =config.db['host'])
-  conn.set_isolation_level(0);
-  cur = conn.cursor()
-  cur.execute("DROP DATABASE IF EXISTS "+config.db['db']+";")
-  conn.commit()
-  conn.set_isolation_level(1);
-  cur.close()
-  conn.close()
-
-def createDB():
-  conn = pg.connect(database=config.db['default-db'], user=config.db['user'],\
-    password=config.db['password'], host =config.db['host'])
-  conn.set_isolation_level(0);
-  cur = conn.cursor()
-  cur.execute("CREATE DATABASE "+config.db['db']+";")
-  conn.set_isolation_level(1);
-  cur.close()
-  conn.close()
-
-deleteDB()
-createDB()
-
 Base = declarative_base()
     
 class Place(Base):

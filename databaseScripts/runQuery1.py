@@ -1,7 +1,4 @@
-
-def graphSearch(p1,p2,X, cur):
-
-
+def query1SQL(p1,p2,X, cur):
 	withReplyRel = "\
 	CREATE OR REPLACE VIEW edge (fromnode, tonode, weight) AS (\
 	  SELECT pk.person_1_id, pk.person_2_id, 1\
@@ -92,8 +89,4 @@ def graphSearch(p1,p2,X, cur):
 	else:
 		return -1
 
-def query1SQL(p1,p2,X,cur):
-	return(graphSearch(p1,p2,X, cur))
 
-
-#----#

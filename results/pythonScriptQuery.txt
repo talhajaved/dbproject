@@ -1,0 +1,85 @@
+query1(576, 400, -1
+STARTTIME (in seconds): 1419276614.03
+Query Output:  3
+ENDTIME (in seconds): 1419276614.72
+RUNTIME (in seconds): 0.684477090836 
+
+query1(58, 402, 0
+STARTTIME (in seconds): 1419276614.82
+Query Output:  3
+ENDTIME (in seconds): 1419276631.67
+RUNTIME (in seconds): 16.8535540104 
+
+query1(266, 106, -1
+STARTTIME (in seconds): 1419276631.68
+Query Output:  3
+ENDTIME (in seconds): 1419276632.14
+RUNTIME (in seconds): 0.46240901947 
+
+query1(313, 523, -1
+STARTTIME (in seconds): 1419276632.16
+Query Output:  -1
+ENDTIME (in seconds): 1419276632.54
+RUNTIME (in seconds): 0.381234169006 
+
+query1(858, 587, 1
+STARTTIME (in seconds): 1419276632.55
+Query Output:  4
+ENDTIME (in seconds): 1419276648.53
+RUNTIME (in seconds): 15.9839429855 
+
+query1(155, 355, -1
+STARTTIME (in seconds): 1419276648.54
+Query Output:  3
+ENDTIME (in seconds): 1419276648.91
+RUNTIME (in seconds): 0.369418859482 
+
+query1(947, 771, -1
+STARTTIME (in seconds): 1419276648.94
+Query Output:  2
+ENDTIME (in seconds): 1419276649.34
+RUNTIME (in seconds): 0.401902914047 
+
+query2(3, 1980-02-01
+STARTTIME (in seconds): 1419276649.37
+Query Output:  Chiang_Kai-shek Augustine_of_Hippo Napoleon
+ENDTIME (in seconds): 1419276650.2
+RUNTIME (in seconds): 0.831140995026 
+
+query2(4, 1981-03-10
+STARTTIME (in seconds): 1419276650.23
+Query Output:  Chiang_Kai-shek Napoleon Mohandas_Karamchand_Gandhi Sukarno
+ENDTIME (in seconds): 1419276650.74
+RUNTIME (in seconds): 0.506922006607 
+
+query2(3, 1982-03-29
+STARTTIME (in seconds): 1419276650.76
+Query Output:  Chiang_Kai-shek Mohandas_Karamchand_Gandhi Napoleon
+ENDTIME (in seconds): 1419276651.43
+RUNTIME (in seconds): 0.666121959686 
+
+query2(3, 1983-05-09
+STARTTIME (in seconds): 1419276651.46
+Query Output:  Chiang_Kai-shek Mohandas_Karamchand_Gandhi Augustine_of_Hippo
+ENDTIME (in seconds): 1419276652.04
+RUNTIME (in seconds): 0.575124025345 
+
+query2(5, 1984-07-02
+STARTTIME (in seconds): 1419276652.07
+Query Output:  Chiang_Kai-shek Aristotle Mohandas_Karamchand_Gandhi Augustine_of_Hippo Fidel_Castro
+ENDTIME (in seconds): 1419276652.54
+RUNTIME (in seconds): 0.464964151382 
+
+query2(3, 1985-05-31
+STARTTIME (in seconds): 1419276652.57
+Query Output:  Chiang_Kai-shek Mohandas_Karamchand_Gandhi Joseph_Stalin
+ENDTIME (in seconds): 1419276653.14
+RUNTIME (in seconds): 0.569551944733 
+
+query2(3, 1986-06-1
+STARTTIME (in seconds): 1419276653.17
+Query Output:  Chiang_Kai-shek Mohandas_Karamchand_Gandhi Joseph_Stalin
+ENDTIME (in seconds): 1419276653.53
+RUNTIME (in seconds): 0.357193946838 
+
+Done.
